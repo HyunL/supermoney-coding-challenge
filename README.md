@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# Supermoney Debt Condolidation Calculator Project:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Table of Contents
 
-Currently, two official plugins are available:
+1. [Assignment](#assignment)
+2. [Submission](#submission)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Assignment <a name="assignment"></a>:
 
-## Expanding the ESLint configuration
+Build a browser based Debt Consolidation Savings Calculator
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Background:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Consumers may have many high interest debts, like auto loans, credit cards, or other installment loans. They can save money by combining all of their high interest debts into a single loan with a lower interest rate.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+We want to help consumers determine exactly how much money they can save by consolidating their loans.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Description:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Use the prototype to create a browser based debt consolidation savings calculator. (link to prototype not included in this repo)
+
+Users can enter the details of their multiple high interest debts, and the calculator will show them how much they can save with a single consolidated loan. The amount of the new loan will be the sum of the outstanding balances of the existing loans. The user can change the potential term and APR of their consolidated loan to see how those affect the monthly payments and overall repayment.
+
+- The solution would preferably be written in React, but any modern Javascript framework will be acceptable (not JQuery).
+- The submission should run in any modern browser (IE compatibility not required)
+- A financial calculations library has been included to simplify the loan calculations. Check the link for documentation. Some people seem to have issues figuring out how to use the recommended library, so feel free to use other libraries.
+
+# Submission <a name="submission"></a>
+
+### Screenshots
+
+![alt text](image.png)
+![alt text](image-1.png)
+
+### Breakdown of Time Spent
+
+- 1.5 hours - input page
+- 2.5 hours - writing util functions to do debt consolidation calculations and consolidated loans page
+- 1 hour code cleanup + readme writeup
+
+### Potential Improvements Given More Time
+
+- Unit tests for the util functions
+- Better form validation when entering the debts for better ux and less bugs
+- Sticking closer to the given design
+- Creating two Debt types for the form inputs and for the utils since the form requires strings and the utils code would be cleaner if the types were numbers. This eliminates the requirement of parseFloat.
