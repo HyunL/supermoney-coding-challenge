@@ -2,8 +2,18 @@
 
 # Table of Contents
 
-1. [Assignment](#assignment)
-2. [Submission](#submission)
+1. [How to Run](#run)
+2. [Assignment](#assignment)
+3. [Submission](#submission)
+
+# How to Run <a name="run"></a>:
+
+Run these commands in the root directory:
+
+```
+npm install
+npm run dev
+```
 
 # Assignment <a name="assignment"></a>:
 
