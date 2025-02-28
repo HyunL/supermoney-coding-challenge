@@ -1,5 +1,7 @@
 # Supermoney Debt Condolidation Calculator Project:
 
+**Demo:** https://www.loom.com/share/ec7e55806e7c4b43b189257935ae048e?sid=89fde88b-3d46-407d-851f-7cdbd0089457
+
 # Table of Contents
 
 1. [How to Run](#run)
