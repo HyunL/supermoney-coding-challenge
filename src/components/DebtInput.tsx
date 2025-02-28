@@ -2,7 +2,7 @@ import { FC } from "react";
 import styled from "styled-components";
 
 import { Debt } from "../types/debt";
-import DebtRowItem from "./DentRowItem";
+import DebtRowItem from "./DebtRowItem";
 import ButtonSecondary from "./ButtonSecondary";
 
 interface DebtInputProps {
