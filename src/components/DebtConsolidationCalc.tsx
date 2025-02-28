@@ -9,6 +9,7 @@ import {
   calculateMonthlyPayment,
   roundTwoDecimalPlaces,
 } from "../utils/debtCalcUtils";
+import { media } from "../styles/media";
 
 interface DebtConsolidationCalcProps {
   debts: Debt[];
@@ -157,6 +158,11 @@ const SlidersContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 1.5rem;
+
+  ${media.mobile(`
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  `)}
 `;
 
 const SliderSection = styled.div`
@@ -199,6 +205,11 @@ const ResultsContainer = styled.div`
   margin-top: 1rem;
   padding-top: 1rem;
   gap: 1rem;
+
+  ${media.mobile(`
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  `)}
 `;
 
 const ResultColumn = styled.div`
