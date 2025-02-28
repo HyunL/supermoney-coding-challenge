@@ -21,10 +21,16 @@ const DebtConsolidationCalc: React.FC<DebtConsolidationCalcProps> = ({
   const [desiredAPR, setDesiredAPR] = useState<number>(8);
   const [desiredTerm, setDesiredTerm] = useState<number>(24);
 
+  // Remove all incomplete rows. Temporary solution until better form validation is implemented
+  const validDebts = debts.filter(
+    (debt) =>
+      debt.amount !== "" && debt.apr !== "" && debt.monthlyPayment !== ""
+  );
+
   // calculate payments and savings
-  const totalRepayment = calculateTotalRepayment(debts);
+  const totalRepayment = calculateTotalRepayment(validDebts);
   const newTotalRepayment = calculateNewTotalRepayment(
-    debts,
+    validDebts,
     desiredAPR / 100, // convert to decimal
     desiredTerm
   );
@@ -32,11 +38,11 @@ const DebtConsolidationCalc: React.FC<DebtConsolidationCalcProps> = ({
     totalRepayment - newTotalRepayment
   );
   const newMonthlyPayment = calculateNewMonthlyPayment(
-    debts,
+    validDebts,
     desiredAPR / 100, // convert to decimal
     desiredTerm
   );
-  const currentMonthlyPayment = calculateMonthlyPayment(debts);
+  const currentMonthlyPayment = calculateMonthlyPayment(validDebts);
   const totalMonthlySavings = roundTwoDecimalPlaces(
     currentMonthlyPayment - newMonthlyPayment
   );
