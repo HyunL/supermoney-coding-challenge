@@ -103,7 +103,7 @@ const DebtConsolidationCalc: React.FC<DebtConsolidationCalcProps> = ({
             <RowLabel>Current Total Repayment</RowLabel>
             <RowValue>{totalRepayment}</RowValue>
           </ResultRow>
-          <HighlightedRow>
+          <HighlightedRow isPositive={totalRepaymentSavings >= 0}>
             <RowLabel>Total Repayment Savings</RowLabel>
             <RowValue>{totalRepaymentSavings}</RowValue>
           </HighlightedRow>
@@ -118,7 +118,7 @@ const DebtConsolidationCalc: React.FC<DebtConsolidationCalcProps> = ({
             <RowLabel>Current Monthly Payment</RowLabel>
             <RowValue>{currentMonthlyPayment}</RowValue>
           </ResultRow>
-          <HighlightedRow>
+          <HighlightedRow isPositive={totalMonthlySavings >= 0}>
             <RowLabel>Total Monthly Savings</RowLabel>
             <RowValue>{totalMonthlySavings}</RowValue>
           </HighlightedRow>
@@ -222,13 +222,15 @@ const RowValue = styled.span`
   color: #333;
 `;
 
-const HighlightedRow = styled(ResultRow)`
-  background: #eafaf1;
+const HighlightedRow = styled(ResultRow)<{ isPositive: boolean }>`
+  /* Conditionally set background based on isPositive */
+  background: ${({ isPositive }) => (isPositive ? "#eafaf1" : "#faeaea")};
   padding: 0.5rem;
   border-radius: 4px;
 
   ${RowValue} {
-    color: #27ae60;
+    /* Conditionally set color based on isPositive */
+    color: ${({ isPositive }) => (isPositive ? "#27ae60" : "#c0392b")};
     font-weight: bold;
   }
 `;
