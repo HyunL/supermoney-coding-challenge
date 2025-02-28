@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Debt } from "../types/debt";
 import DebtInput from "../components/DebtInput";
 import ButtonSecondary from "../components/ButtonSecondary";
+import DebtConsolidationCalc from "../components/DebtConsolidationCalc";
 
 const DebtCalculatorPage: FC = () => {
   const [savingsCalculated, setSavingsCalculated] = useState<boolean>(false);
@@ -24,9 +25,8 @@ const DebtCalculatorPage: FC = () => {
     },
   ]);
 
-  const onCalculate = (debts: Debt[]) => {
+  const onCalculate = () => {
     setSavingsCalculated(true);
-    console.log(debts);
   };
 
   const onBackClicked = () => {
@@ -49,20 +49,24 @@ const DebtCalculatorPage: FC = () => {
           onCalculate={onCalculate}
         />
       ) : (
-        <ButtonSecondary onClick={onBackClicked}>
-          &#x2190; Update Your Current Debts
-        </ButtonSecondary>
+        <>
+          <ButtonSecondary onClick={onBackClicked}>
+            &#x2190; Update Your Current Debts
+          </ButtonSecondary>
+          <DebtConsolidationCalc debts={debts} />
+        </>
       )}
     </Container>
   );
 };
 
 const Container = styled.section`
+  border: 1px solid #ddd;
   max-width: 600px;
   min-width: 300px;
   margin: 0 auto;
-  padding: 1rem;
-  background: #fafafa;
+  padding: 2em;
+  background: #fff;
   border-radius: 4px;
 `;
 

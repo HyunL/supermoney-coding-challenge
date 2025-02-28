@@ -6,7 +6,7 @@ import DebtRowItem from "./DentRowItem";
 import ButtonSecondary from "./ButtonSecondary";
 
 interface DebtInputProps {
-  onCalculate: (debts: Debt[]) => void;
+  onCalculate: () => void;
   debts: Debt[];
   setDebts: React.Dispatch<React.SetStateAction<Debt[]>>;
 }
@@ -42,11 +42,6 @@ const DebtInput: FC<DebtInputProps> = ({ onCalculate, debts, setDebts }) => {
     setDebts((prev) => prev.filter((_, i) => i !== index));
   };
 
-  // Trigger the calculation
-  const handleCalculateSavings = () => {
-    onCalculate(debts);
-  };
-
   return (
     <>
       <Title>ENTER YOUR CURRENT DEBTS</Title>
@@ -76,7 +71,7 @@ const DebtInput: FC<DebtInputProps> = ({ onCalculate, debts, setDebts }) => {
       <br />
       <br />
 
-      <CalculateButton type="button" onClick={handleCalculateSavings}>
+      <CalculateButton type="button" onClick={onCalculate}>
         Calculate Savings
       </CalculateButton>
     </>
